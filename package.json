@@ -16,6 +16,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+    "stop-only": "stop-only --folder specs --folder bin"
   },
   "eslintConfig": {
     "extends": [
