@@ -7,7 +7,7 @@
     background-color: var(--body-color);
 }
 
-.nav {
+.nav{
     height: calc(var(--header-height)+ 1.5rem);
     display: flex;
     justify-content: space-between;
@@ -39,10 +39,10 @@
     color: var(--font-medium);
     transition: .3s;
 }
-.nav__icon,
+/* .nav__icon, */
 .nav__close,
 .nav__toggle{
-    display: flex;
+    display: none;
 }
 
 /* Active link */

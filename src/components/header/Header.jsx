@@ -8,7 +8,7 @@ export const Header = () => {
         <nav className="nav__container">
             <a href="index.html" className="nav__logo">Lusthier</a>
             <div className="nav__menu">
-                <ul className="nav_list grid">
+                <ul className="nav__list grid">
                     <li className="nav__item">
                         <a href="/#" className="nav__link active-link">
                             <i className="uil uil-estate nav__icon">Home</i>
@@ -47,5 +47,6 @@ export const Header = () => {
             </div>
         </nav>
     </header>
+    
   ) 
 }
