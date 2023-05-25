@@ -1,0 +1,23 @@
+:root{
+    background-color: rgb(27, 27, 27);
+    color: rgb(214, 214, 214);
+}
+h2{
+    font-family:'JetBrains Mono', monospace;
+    font-size:2rem;
+    color:rgb(214, 214, 214);
+}
+img{
+    border-radius:50%;
+    background-color: black;
+}
+
+/* .top-nav{
+    background-color: rgb(212, 212, 212);
+    height:max-content;
+} */
+#home{
+    position:absolute;
+    width:200px;
+    height: 200px;
+}
