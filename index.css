@@ -1,13 +1,27 @@
 :root{
     background-color: rgb(27, 27, 27);
     color: rgb(214, 214, 214);
+    cursor:url("./src/sword-svgrepo-com.png"),auto;
 }
 h2{
     font-family:'JetBrains Mono', monospace;
     font-size:2rem;
     color:rgb(214, 214, 214);
+
+}
+p{
+    font-family:'Unbounded';
+    font-size: 1,5rem;
+}
+#contact{
+    font-family: 'JetBrians Mono';
+}
+ul,li{
+    font-family: 'Open Sans';
+    font-size: 1rem;
 }
 img{
+    /* mask-image: url(./src/mask.svg); */
     border-radius:50%;
     background-color: black;
 }
