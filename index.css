@@ -4,10 +4,14 @@
     font-family:'Open Sans', sans-serif;
     font-size:1rem;
 }
-
 h1{
     font-family:'JetBrains Mono', monospace;
     font-size:2rem;
+    color:rgb(214, 214, 214);
+}
+h2{
+    font-family:'JetBrains Mono', monospace;
+    font-size:1rem;
     color:rgb(214, 214, 214);
 }
 img{
@@ -46,6 +50,9 @@ a{
     /* background-color: rgb(167, 167, 167); */
 
 }
+main{
+    margin:0 40px;
+}
 .main-container{
     display:flex;
     align-items: center;
@@ -54,10 +61,25 @@ a{
 }
 .user-porperty{
     /* display:flex; */
-    flex-direction: row;
-
+    flex-direction: row;    
+}
+.user-porperty:after{
+        content: "";
+        display: table;
+        clear: both;
 }
 
+.column{
+    float:left;
+    width:400px;
+    padding: 10px;
+    word-wrap:break-word;
+    /* height:800px; */
+}
+.vl{
+    border-left: 6px rgb(172,172,172);
+    height:40px;
+}
 .ava-container{
     display:flex;
     width: 100px;
@@ -67,4 +89,61 @@ a{
 }
 .user-porperty{
     display:contents;
+}
+.email{
+    padding: 5px;
+    border-radius: 6px;
+    text-decoration-color: rgb(172, 172, 172);
+}
+input::placeholder{
+    padding:0 6px 0 6px;
+    font-family:'Open Sans', sans-serif;
+    color:rgb(190, 190, 190);
+}
+.message{
+    border-radius: 6px;
+}
+textarea::placeholder{
+    font-family: 'Open Sans', sans-serif;
+    padding:6px;
+    margin:auto;
+    color:rgb(190, 190, 190);
+}
+.submit-button{
+    font-family:'Open Sans',sans-serif;
+    font-weight: bold;
+    background-image: linear-gradient(to right, #50C9C3 0%, #96DEDA  51%, #50C9C3  100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    /* transition: 0.5s; */
+    background-size: 200% auto;
+    color: white;            
+    /* box-shadow: 0 0 20px #eee; */
+    border-radius: 40px;
+    display: block;
+        
+}
+.submit-button:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+.lb-title{
+    font-family: 'Jet Brians',monospace;
+    font-size: 2rem;
+    /* margin:10px; */
+    /* padding: 10px; */
+}
+.leave-message{
+    margin:30px;
+    float:left;
+    width:400px;
+    padding: 10px;
+    word-wrap:break-word;
+}
+.lb-head{
+    font-family: 'Jet Brians',monospace;
+    margin:30px 0;
 }
