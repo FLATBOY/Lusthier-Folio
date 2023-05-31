@@ -37,12 +37,9 @@ p{
     font-size: medium;
 }
 .home{
-    /* position:absolute; */
     justify-self:center;
     width:120px;
     height:60px;
-    /* background-color: rgb(164, 101, 101); */
-    /* float: left; */
 }
 .menu{
     /* position:flex; */
