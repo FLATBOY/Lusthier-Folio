@@ -1,37 +1,70 @@
 :root{
     background-color: rgb(27, 27, 27);
     color: rgb(214, 214, 214);
-    cursor:url("./src/sword-svgrepo-com.png"),auto;
+    font-family:'Open Sans', sans-serif;
+    font-size:1rem;
 }
-h2{
+
+h1{
     font-family:'JetBrains Mono', monospace;
     font-size:2rem;
     color:rgb(214, 214, 214);
-
-}
-p{
-    font-family:'Unbounded';
-    font-size: 1,5rem;
-}
-#contact{
-    font-family: 'JetBrians Mono';
-}
-ul,li{
-    font-family: 'Open Sans';
-    font-size: 1rem;
 }
 img{
-    /* mask-image: url(./src/mask.svg); */
     border-radius:50%;
     background-color: black;
 }
+a{
+    text-decoration: none;
+    color:#909090;
+}
+.top-nav{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: rgb(39, 39, 39); */
+    height:60px;
+    /* margin:auto; */
+    padding:5px;
 
-/* .top-nav{
-    background-color: rgb(212, 212, 212);
-    height:max-content;
-} */
-#home{
-    position:absolute;
-    width:200px;
-    height: 200px;
+}
+.home{
+    /* position:absolute; */
+    justify-self:center;
+    width:120px;
+    height:60px;
+    /* background-color: rgb(164, 101, 101); */
+    /* float: left; */
+}
+.menu{
+    /* position:flex; */
+    text-align: center;
+    font-family:'Unbounded',sans-serif;
+    color:#909090;
+    text-decoration:none;
+    z-index:0;
+    /* background-color: rgb(167, 167, 167); */
+
+}
+.main-container{
+    display:flex;
+    align-items: center;
+    /* justify-content:space-around;
+    padding: 0 10px 0 10px; */
+}
+.user-porperty{
+    /* display:flex; */
+    flex-direction: row;
+
+}
+
+.ava-container{
+    display:flex;
+    width: 100px;
+    height:100px;
+    padding:20px;
+    border:rgb(0, 0, 0) 6px;
+}
+.user-porperty{
+    display:contents;
 }
