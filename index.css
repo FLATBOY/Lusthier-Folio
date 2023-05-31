@@ -6,7 +6,7 @@
 }
 h1{
     font-family:'JetBrains Mono', monospace;
-    font-size:2rem;
+    font-size:3rem;
     color:rgb(214, 214, 214);
 }
 h2{
@@ -28,9 +28,13 @@ a{
     align-items: center;
     /* background-color: rgb(39, 39, 39); */
     height:60px;
-    /* margin:auto; */
+    margin:0 40px;
     padding:5px;
 
+}
+p{
+    font-family:'Open Sans',sans-serif;
+    font-size: medium;
 }
 .home{
     /* position:absolute; */
@@ -42,22 +46,42 @@ a{
 }
 .menu{
     /* position:flex; */
+    font-size: 1rem;
     text-align: center;
     font-family:'Unbounded',sans-serif;
     color:#909090;
     text-decoration:none;
     z-index:0;
-    /* background-color: rgb(167, 167, 167); */
-
+    transition: ease-in-out 250ms;
+    margin-right: 100px;
+}
+.menu:hover{
+    font-size: 1rem;
+    text-align: center;
+    transform: translateY(-10px);
+    color:rgb(116, 204, 255);
 }
 main{
-    margin:0 40px;
+    margin: 40px 40px;
 }
 .main-container{
     display:flex;
     align-items: center;
     /* justify-content:space-around;
     padding: 0 10px 0 10px; */
+}
+.ava-container{
+    display:flex;
+    width: 120px;
+    height:120px;
+    padding:20px;
+    border:rgb(0, 0, 0) 6px;
+    transition: ease-in-out 250ms;
+    filter:grayscale(1);
+}
+.ava-container:hover{
+    transform:scale(150%);
+    filter:grayscale(0);
 }
 .user-porperty{
     /* display:flex; */
@@ -68,24 +92,19 @@ main{
         display: table;
         clear: both;
 }
-
+.user-info{
+    margin:0 40px;
+}
 .column{
     float:left;
-    width:400px;
+    width:340px;
     padding: 10px;
     word-wrap:break-word;
-    /* height:800px; */
+    height:160px;
 }
 .vl{
     border-left: 6px rgb(172,172,172);
     height:40px;
-}
-.ava-container{
-    display:flex;
-    width: 100px;
-    height:100px;
-    padding:20px;
-    border:rgb(0, 0, 0) 6px;
 }
 .user-porperty{
     display:contents;
@@ -109,7 +128,7 @@ textarea::placeholder{
     margin:auto;
     color:rgb(190, 190, 190);
 }
-.submit-button{
+.submit-btn{
     font-family:'Open Sans',sans-serif;
     font-weight: bold;
     background-image: linear-gradient(to right, #50C9C3 0%, #96DEDA  51%, #50C9C3  100%);
