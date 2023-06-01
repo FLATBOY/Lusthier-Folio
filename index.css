@@ -116,6 +116,7 @@ li{
     margin-left: 40px;
 }
 .icon{
+    /* display:none; */
     margin-right: 60px;
     position:absolute;
 }
