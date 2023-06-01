@@ -108,7 +108,7 @@ li{
 }
 .column-title{
     display: flex;
-    flex:2;
+    flex:1;
     margin:10px;
     align-items: center;
 }
