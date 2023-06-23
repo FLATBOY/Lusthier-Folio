@@ -84,7 +84,7 @@ a{
 .web__main-detail{
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    /* justify-content: space-between; */
     margin:0 80px 0 10px ;
 }
 .web__main-detail-1{
@@ -98,7 +98,8 @@ a{
 .web__main-detail-2{
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-between;
+
 }
 .li-text-black{
     font-size: 1.25rem;
@@ -114,14 +115,20 @@ a{
     justify-content: flex-start;
 
 }
-.main-detail-2{
+.main__detail-2{
+    z-index: 1;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    margin-top:3rem;
-}
+    justify-content: space-between;
+}   
 .main__detail-skills{
-    margin-right: 10rem;
+    /* margin:auto; */
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-start;
+}
+.main__detail-interests{
+    /* margin-right: 10rem; */
     display: flex;
     flex-direction: column;
     justify-items: flex-start;
@@ -169,19 +176,12 @@ a{
 .user-portrait{
     z-index: 0;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    position: relative;
+    position: absolute;
     transform: scaleX(-1);
-    margin-right: 40px;
-    width: 100%;
+    margin-left: 26rem;
     height: 60vh;
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-span{
-    font-size: 2rem;
 }
 
 .contact-btn{
