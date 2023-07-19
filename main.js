@@ -84,7 +84,7 @@ document.body.addEventListener('mousemove',( event ) =>{
 });
 
 //FUNCTION CONTROL MOVEMENT
-function playerCollider(){
+function playerCollisions(){
     const result = worldOctree.capsuleIntersect(playerCollider);
     playerOnFloor = false;
 
