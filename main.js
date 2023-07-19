@@ -4,6 +4,11 @@ import Stats from './node_modules/three/addons/libs/stats.module.js';
 
 import { OrbitControls } from './node_modules/three/addons/controls/OrbitControls';
 
+import { Octree } from './node_modules/three/addons/math/Octree.js';
+import { OctreeHelper } from './node_modules/three/addons/helpers/OctreeHelper.js';
+
+import { Capsule } from './node_modules/three/addons/math/Capsule.js';
+
 import { GLTFLoader } from './node_modules/three/addons/loaders/GLTFLoader';
 
 
@@ -24,6 +29,119 @@ fillLight1.position.set( 2,1,1 );
 scene.add( fillLight1 );
 
 const directionalLight = new THREE.DirectionalLight( 0xffffff,2.5);
+directionalLight.position.set( -5,25,-1);
+directionalLight.castShadow = true;
+directionalLight.shadow.camera.near = 0.01;
+directionalLight.shadow.camera.far = 500;
+directionalLight.shadow.camera.right = 30;
+directionalLight.shadow.camera.left = -30;
+directionalLight.shadow.camera.top = 30;
+directionalLight.shadow.camera.bottom = -30;
+directionalLight.shadow.mapSize.width = 2048;
+directionalLight.shadow.mapSize.height = 2048;
+directionalLight.shadow.radius = 4;
+directionalLight.shadow.bias = -0.000006;
+scene.add(directionalLight);
+
+const container = document.getElementById( 'container' );
+
+const renderer = new THREE.WebGLRenderer( {antialias:true} );
+
+const stats = new Stats();
+
+// SETUP MOVEMENT
+const worldOctree = new Octree();
+
+const playerCollider = new Capsule (new THREE.Vector3(0,0.35,0), new THREE.Vector3(0,1,0),0.35);
+
+const playerVelocity = new THREE.Vector3();
+const playerDirection = new THREE.Vector3();
+
+let playerOnFloor = false;
+let mouseTime = 0;
+
+const vector1 = new THREE.Vector3();
+const vector2 = new THREE.Vector3();
+const vector3 = new THREE.Vector3();
+
+
+document.addEventListener( 'keydown', ( event ) =>{
+    keyStates[ event.code] = true;
+});
+document.addEventListener( 'keyup', ( event ) =>{
+    keyStates[ event.code] = false;
+});
+container.addEventListener( 'mousedown', () =>{
+    document.body.requestPointerLock();
+    mouseTime = performance.now();
+});
+
+document.body.addEventListener('mousemove',( event ) =>{
+    if (document.pointerLockElement === document.body){
+        camera.rotation.y -= event.movementX / 500;
+        camera.rotation.x -= event.movementY / 500;
+    }
+});
+
+//FUNCTION CONTROL MOVEMENT
+function playerCollider(){
+    const result = worldOctree.capsuleIntersect(playerCollider);
+    playerOnFloor = false;
+
+    if (result){
+        playerOnFloor = result.normal.y > 0;
+
+        if(!playerOnFloor){
+            playerVelocity.addScaledVector(result.normal, - result.normal.dot(playerVelocity));
+        }
+        playerCollider.translate(result.normal.multiplyScalar(result.depth));
+    }
+}
+
+function getForwardVector (){
+
+}
+
+function controls( deltaTIme ){
+    const speedDelta = deltaTIme * (playerOnFloor ? 25 : 8);
+
+    if ( keyStates['keyW']){
+        playerVelocity.add(getForwardVector().multiplyScalar( speedDelta ));
+    }
+
+    if ( keyStates['keyS']) {
+        playerVelocity.add(getForwardVector().multiplyScalar( - speedDelta));
+    }
+
+    if (keyStates['keyA']){
+        playerVelocity.add(getForwardVector().multiplyScalar( - speedDelta));
+    }
+
+    if (keyStates['keyD']){
+        playerVelocity.add(getForwardVector().multiplyScalar( speedDelta ))
+    }
+
+    if (playerOnFloor){
+        if (keyStates[ 'Space' ]){
+            playerVelocity.y = 8;
+        }
+    }
+}
+
+
+function animate(){
+    
+    const deltaTIme = Math.min( 0.05, clock.getDelta()) / STEPS_PER_FRAME;
+
+    for ( let i = 0; i < STEPS_PER_FRAME; i++){
+        controls( deltaTIme );
+        updatePlayer( deltaTIme );
+    }
+
+    renderer.render( scene,camera );
+    stats.update();
+    requestAnimationFrame( animate ); 
+}
 
 
 
