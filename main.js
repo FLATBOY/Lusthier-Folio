@@ -128,6 +128,31 @@ function controls( deltaTIme ){
     }
 }
 
+const loader = new GLTFLoader().setPath( './models/gltf/');
+loader.load( 'collision-world.lib', (gltf) => {
+    scene.add( gltf.scene);
+    worldOctree.fromGraphNode(gltf.scene);
+    gltf.scene.traverse(child =>{
+        if (child.isMesh){
+            child.castShadow = true;
+            child.receiveShadow = true;
+
+            if (child.material.map){
+                child.material.anisotropy = 4;
+            }
+        }
+    });
+})
+
+function teleportPlayerIfOob(){
+    if (camera.position.y <= -25){
+        playerCollider.start.set(0,0.35,0);
+        playerCollider.end.set(0,1,0);
+        playerCollider.radius = 0.35;
+        camera.position.copy(playerCollider.end);
+        camera.position.set(0,0,0);
+    }
+}
 
 function animate(){
     
