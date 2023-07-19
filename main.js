@@ -142,6 +142,7 @@ loader.load( 'collision-world.lib', (gltf) => {
             }
         }
     });
+    animate();
 })
 
 function teleportPlayerIfOob(){
