@@ -18,7 +18,7 @@ const GRAVITY = 30;
 const STEPS_PER_FRAME = 5;
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color( 0x88ccee );
+// scene.background = new THREE.Color( 0x88ccee );
 scene.fog = new THREE.Fog( 0x88ccee,0,50);
 
 const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1 , 1000);
@@ -127,23 +127,34 @@ function controls( deltaTIme ){
         }
     }
 }
+const loader = new THREE.CubeTextureLoader();
+const texture = loader.load([
+    './skybox/bk.jpg',
+    './skybox/dn.jpg',
+    './skybox/ft.jpg',
+    './skybox/lf.jpg',
+    './skybox/rt.jpg',
+    './skybox/up.jpg',
+])
 
-const loader = new GLTFLoader().setPath( './models/gltf/');
-loader.load( 'collision-world.lib', (gltf) => {
-    scene.add( gltf.scene);
-    worldOctree.fromGraphNode(gltf.scene);
-    gltf.scene.traverse(child =>{
-        if (child.isMesh){
-            child.castShadow = true;
-            child.receiveShadow = true;
+scene.background = texture;
+animate();
+// const loader = new GLTFLoader().setPath( './models/gltf/');
+// loader.load( 'collision-world.lib', (gltf) => {
+//     scene.add( gltf.scene);
+//     worldOctree.fromGraphNode(gltf.scene);
+//     gltf.scene.traverse(child =>{
+//         if (child.isMesh){
+//             child.castShadow = true;
+//             child.receiveShadow = true;
 
-            if (child.material.map){
-                child.material.anisotropy = 4;
-            }
-        }
-    });
-    animate();
-})
+//             if (child.material.map){
+//                 child.material.anisotropy = 4;
+//             }
+//         }
+//     });
+//     animate();
+// })
 
 function teleportPlayerIfOob(){
     if (camera.position.y <= -25){
